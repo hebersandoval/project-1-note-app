@@ -30,6 +30,11 @@ document.querySelector('#remove-all').addEventListener('click', function () {
     });
 });
 
+// Get input field value
+document.querySelector('#search-text').addEventListener('change', function (event) {
+    console.log(event.target.value);
+});
+
 // Get all the notes and display them in the DOM
 notes.forEach(function (note) {
     // 1. Create a new element
