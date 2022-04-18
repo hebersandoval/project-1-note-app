@@ -20,8 +20,9 @@ const notes = [
     },
 ];
 
-document.querySelector('button').addEventListener('click', function () {
+document.querySelector('button').addEventListener('click', function (event) {
     console.log('Did this work');
+    event.target.textContent = 'clicked';
 });
 
 // Get all the notes and display them in the DOM
