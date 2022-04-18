@@ -20,9 +20,13 @@ const notes = [
     },
 ];
 
-document.querySelector('button').addEventListener('click', function (event) {
+document.querySelector('#create-note').addEventListener('click', function (event) {
     console.log('Did this work');
-    event.target.textContent = 'clicked';
+    event.target.textContent = 'Clicked';
+});
+
+document.querySelector('#remove-all').addEventListener('click', function () {
+    console.log('Delete all notes.');
 });
 
 // Get all the notes and display them in the DOM
