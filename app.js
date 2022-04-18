@@ -20,6 +20,10 @@ const notes = [
     },
 ];
 
+document.querySelector('button').addEventListener('click', function () {
+    console.log('Did this work');
+});
+
 // Get all the notes and display them in the DOM
 notes.forEach(function (note) {
     // 1. Create a new element
