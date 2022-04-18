@@ -31,7 +31,7 @@ document.querySelector('#remove-all').addEventListener('click', function () {
 });
 
 // Get input field value
-document.querySelector('#search-text').addEventListener('change', function (event) {
+document.querySelector('#search-text').addEventListener('input', function (event) {
     console.log(event.target.value);
 });
 
