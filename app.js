@@ -9,5 +9,6 @@ const p = document.querySelector('p');
 const ps = document.querySelectorAll('p');
 
 ps.forEach(function (p) {
-    console.log(p.textContent);
+    // Change content for each paragraph's value.
+    p.textContent = '*********************';
 });
