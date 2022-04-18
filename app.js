@@ -3,6 +3,10 @@ console.log('Hello from Notes App!');
 // Series of notes hard-coded
 const notes = [
     {
+        title: 'This note was created by HS.',
+        content: 'This is where you will put lots of content to read later.',
+    },
+    {
         title: 'Learn JavaScript Types in a day.',
         content: 'It would be nice to learn all you can about JavaScript types in a day and remember then.',
     },
@@ -16,23 +20,12 @@ const notes = [
     },
 ];
 
-// Query document for varies elements in page.
-const p = document.querySelector('p');
-
-// p.remove();
-
-// Query all and remove
-const ps = document.querySelectorAll('p');
-
-ps.forEach(function (p) {
-    // Change content for each paragraph's value.
-    p.textContent = '*********************';
+// Get all the notes and display them in the DOM
+notes.forEach(function (note) {
+    // 1. Create a new element
+    const newNote = document.createElement('p');
+    // 2. Update content
+    newNote.textContent = note.title;
+    // 3. Insert it in the DOM
+    document.querySelector('body').appendChild(newNote);
 });
-
-// Add a new element to page
-// 1. Create a new element
-const newParagraph = document.createElement('p');
-// 2. Update content
-newParagraph.textContent = 'This is a new element from JS code.';
-// 3. Put it somewhere in the DOM
-document.querySelector('body').appendChild(newParagraph); // Will append 'newParagraph' to the end of the list of tag selected.
