@@ -3,10 +3,6 @@ console.log('Hello from Notes App!');
 // Series of notes hard-coded
 const notes = [
     {
-        title: 'This note was created by HS.',
-        content: 'This is where you will put lots of content to read later.',
-    },
-    {
         title: 'Learn JavaScript Types in a day.',
         content: 'It would be nice to learn all you can about JavaScript types in a day and remember then.',
     },
@@ -20,13 +16,18 @@ const notes = [
     },
 ];
 
+// Create a note
 document.querySelector('#create-note').addEventListener('click', function (event) {
     console.log('Did this work');
     event.target.textContent = 'Clicked';
 });
 
+// Remove all notes
 document.querySelector('#remove-all').addEventListener('click', function () {
     console.log('Delete all notes.');
+    document.querySelectorAll('.note').forEach(function (note) {
+        note.remove();
+    });
 });
 
 // Get all the notes and display them in the DOM
