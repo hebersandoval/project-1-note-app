@@ -34,7 +34,7 @@ const renderNotes = function (notes, filters) {
         // Update content
         noteElement.textContent = note.title;
         // Append note to the DOM
-        document.querySelector('body').appendChild(noteElement);
+        document.querySelector('#notes').appendChild(noteElement);
     });
 };
 
