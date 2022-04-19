@@ -27,7 +27,15 @@ const renderNotes = function (notes, filters) {
         // Contains searched text
         return note.title.toLowerCase().includes(filters.searchText.toLowerCase());
     });
-    console.log(filteredNotes);
+    // console.log(filteredNotes);
+    filteredNotes.forEach(function (note) {
+        // Create new element
+        const noteElement = document.createElement('p');
+        // Update content
+        noteElement.textContent = note.title;
+        // Append note to the DOM
+        document.querySelector('body').appendChild(noteElement);
+    });
 };
 
 renderNotes(notes, filters);
@@ -51,14 +59,4 @@ document.querySelector('#search-text').addEventListener('input', function (event
     // console.log(event.target.value);
     filters.searchText = event.target.value;
     renderNotes(notes, filters);
-});
-
-// Get all the notes and display them in the DOM
-notes.forEach(function (note) {
-    // 1. Create a new element
-    const newNote = document.createElement('p');
-    // 2. Update content
-    newNote.textContent = note.title;
-    // 3. Insert it in the DOM
-    document.querySelector('body').appendChild(newNote);
 });
