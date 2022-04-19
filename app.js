@@ -40,6 +40,7 @@ const renderNotes = function (notes, filters) {
     });
 };
 
+// This gets called ones, just to have some notes to display
 renderNotes(notes, filters);
 
 // Create a note
