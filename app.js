@@ -49,14 +49,6 @@ document.querySelector('#create-note').addEventListener('click', function (event
     event.target.textContent = 'Clicked';
 });
 
-// Remove all notes
-document.querySelector('#remove-all').addEventListener('click', function () {
-    console.log('Delete all notes.');
-    document.querySelectorAll('.note').forEach(function (note) {
-        note.remove();
-    });
-});
-
 // Get input field value
 document.querySelector('#search-text').addEventListener('input', function (event) {
     // console.log(event.target.value);
