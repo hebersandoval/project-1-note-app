@@ -27,7 +27,9 @@ const renderNotes = function (notes, filters) {
         // Contains searched text
         return note.title.toLowerCase().includes(filters.searchText.toLowerCase());
     });
-    // console.log(filteredNotes);
+    // Clear element
+    document.querySelector('#notes').innerHTML = '';
+    // Iterate over notes and create new element to append to DOM
     filteredNotes.forEach(function (note) {
         // Create new element
         const noteElement = document.createElement('p');
