@@ -65,3 +65,8 @@ document.querySelector('#note-form').addEventListener('submit', function (event)
     // Set value of input field to empty string
     event.target.elements.myNote.value = '';
 });
+
+// Get data from dropdown
+document.querySelector('#filter-by').addEventListener('change', function (event) {
+    console.log(event.target.value);
+});
