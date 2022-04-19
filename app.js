@@ -55,3 +55,13 @@ document.querySelector('#search-text').addEventListener('input', function (event
     filters.searchText = event.target.value;
     renderNotes(notes, filters);
 });
+
+// Capture form data
+document.querySelector('#note-form').addEventListener('submit', function (event) {
+    // Disable default behavior on form submission
+    event.preventDefault();
+    // Display data to the console for now
+    console.log(event.target.elements.myNote.value);
+    // Set value of input field to empty string
+    event.target.elements.myNote.value = '';
+});
