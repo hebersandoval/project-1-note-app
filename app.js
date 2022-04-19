@@ -16,6 +16,22 @@ const notes = [
     },
 ];
 
+// Filter data
+const filters = {
+    searchText: '',
+};
+
+const renderNotes = function (notes, filters) {
+    // Limit notes that pass filters
+    const filteredNotes = notes.filter(function (note) {
+        // Contains searched text
+        return note.title.toLowerCase().includes(filters.searchText.toLowerCase());
+    });
+    console.log(filteredNotes);
+};
+
+renderNotes(notes, filters);
+
 // Create a note
 document.querySelector('#create-note').addEventListener('click', function (event) {
     console.log('Did this work');
@@ -32,7 +48,9 @@ document.querySelector('#remove-all').addEventListener('click', function () {
 
 // Get input field value
 document.querySelector('#search-text').addEventListener('input', function (event) {
-    console.log(event.target.value);
+    // console.log(event.target.value);
+    filters.searchText = event.target.value;
+    renderNotes(notes, filters);
 });
 
 // Get all the notes and display them in the DOM
