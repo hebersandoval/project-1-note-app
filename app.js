@@ -16,6 +16,9 @@ const notes = [
     },
 ];
 
+// Testing localStorage API
+localStorage.setItem('name', 'Heber');
+
 // Filter data
 const filters = {
     searchText: '',
