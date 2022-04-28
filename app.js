@@ -18,16 +18,8 @@ const renderNotes = function (notes, filters) {
     document.querySelector('#notes').innerHTML = '';
     // Iterate over notes and create new element to append to DOM
     filteredNotes.forEach(function (note) {
-        // Create new element
-        const noteElement = document.createElement('p');
-        // Create if notes title is not empty
-        if (note.title.length > 0) {
-            // Update content
-            noteElement.textContent = note.title;
-        } else {
-            // Not replacing the title property of 'notes' just filling in the element's text content.
-            noteElement.textContent = 'Untitled note';
-        }
+        // Generates a new note
+        const noteElement = generateNoteDOM(note);
         // Append note to the DOM
         document.querySelector('#notes').appendChild(noteElement);
     });
