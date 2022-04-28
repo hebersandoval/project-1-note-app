@@ -8,23 +8,6 @@ const filters = {
     searchText: '',
 };
 
-const renderNotes = function (notes, filters) {
-    // Limit notes that pass filters
-    const filteredNotes = notes.filter(function (note) {
-        // Contains searched text
-        return note.title.toLowerCase().includes(filters.searchText.toLowerCase());
-    });
-    // Clear element
-    document.querySelector('#notes').innerHTML = '';
-    // Iterate over notes and create new element to append to DOM
-    filteredNotes.forEach(function (note) {
-        // Generates a new note
-        const noteElement = generateNoteDOM(note);
-        // Append note to the DOM
-        document.querySelector('#notes').appendChild(noteElement);
-    });
-};
-
 // This gets called ones, just to have some notes to display
 renderNotes(notes, filters);
 
