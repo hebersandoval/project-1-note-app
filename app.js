@@ -1,20 +1,12 @@
 console.log('Hello from Notes App!');
 
 // Series of notes hard-coded
-let notes = [];
+const notes = getSavedNotes();
 
 // Filter data
 const filters = {
     searchText: '',
 };
-
-// Check for existing saved data
-const notesJSON = localStorage.getItem('notes');
-
-if (notesJSON !== null) {
-    // Parse existing array
-    notes = JSON.parse(notesJSON);
-}
 
 const renderNotes = function (notes, filters) {
     // Limit notes that pass filters
