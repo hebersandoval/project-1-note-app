@@ -1,28 +1,20 @@
 console.log('Hello from Notes App!');
 
 // Series of notes hard-coded
-const notes = [
-    {
-        title: 'Learn JavaScript Types in a day.',
-        content: 'It would be nice to learn all you can about JavaScript types in a day and remember then.',
-    },
-    {
-        title: 'Plan a trip to the beach or cabin in the woods.',
-        content: 'If you forget this, you wont be able to go anywhere this summer',
-    },
-    {
-        title: 'Start working on your JavaScript project.',
-        content: 'What are you going to build or what idea is in your head?',
-    },
-];
-
-// Testing localStorage API
-localStorage.setItem('name', 'Heber');
+let notes = [];
 
 // Filter data
 const filters = {
     searchText: '',
 };
+
+// Check for existing saved data
+const notesJSON = localStorage.getItem('notes');
+
+if (notesJSON !== null) {
+    // Parse existing array
+    notes = JSON.parse(notesJSON);
+}
 
 const renderNotes = function (notes, filters) {
     // Limit notes that pass filters
@@ -36,8 +28,14 @@ const renderNotes = function (notes, filters) {
     filteredNotes.forEach(function (note) {
         // Create new element
         const noteElement = document.createElement('p');
-        // Update content
-        noteElement.textContent = note.title;
+        // Create if notes title is not empty
+        if (note.title.length > 0) {
+            // Update content
+            noteElement.textContent = note.title;
+        } else {
+            // Not replacing the title property of 'notes' just filling in the element's text content.
+            noteElement.textContent = 'Untitled note';
+        }
         // Append note to the DOM
         document.querySelector('#notes').appendChild(noteElement);
     });
@@ -48,8 +46,14 @@ renderNotes(notes, filters);
 
 // Create a note
 document.querySelector('#create-note').addEventListener('click', function (event) {
-    console.log('Did this work');
-    event.target.textContent = 'Clicked';
+    notes.push({
+        title: '',
+        content: '',
+    });
+    // Save data to localStorage
+    localStorage.setItem('notes', JSON.stringify(notes));
+    // Render the notes
+    renderNotes(notes, filters);
 });
 
 // Get input field value
@@ -57,16 +61,6 @@ document.querySelector('#search-text').addEventListener('input', function (event
     // console.log(event.target.value);
     filters.searchText = event.target.value;
     renderNotes(notes, filters);
-});
-
-// Capture form data
-document.querySelector('#note-form').addEventListener('submit', function (event) {
-    // Disable default behavior on form submission
-    event.preventDefault();
-    // Display data to the console for now
-    console.log(event.target.elements.myNote.value);
-    // Set value of input field to empty string
-    event.target.elements.myNote.value = '';
 });
 
 // Get data from dropdown
