@@ -20,8 +20,9 @@ document.querySelector('#create-note').addEventListener('click', function (event
     });
     // Save data to localStorage
     saveNotes(notes);
-    // Render the notes
-    renderNotes(notes, filters);
+
+    // Send the user to the edit page when button is clicked
+    location.assign('/edit.html');
 });
 
 // Get input field value
