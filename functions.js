@@ -58,7 +58,7 @@ const generateNoteDOM = function (note) {
     }
 
     // Set attribute for anchor tag
-    textElement.setAttribute('href', '/edit.html');
+    textElement.setAttribute('href', `/edit.html#${note.id}`);
 
     // Append the span tag to the div tag
     noteElement.appendChild(textElement);
