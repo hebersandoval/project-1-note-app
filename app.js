@@ -13,8 +13,10 @@ renderNotes(notes, filters);
 
 // Create a note
 document.querySelector('#create-note').addEventListener('click', function (event) {
+    const id = uuidv4();
+
     notes.push({
-        id: uuidv4(),
+        id: id,
         title: '',
         content: '',
     });
@@ -22,7 +24,7 @@ document.querySelector('#create-note').addEventListener('click', function (event
     saveNotes(notes);
 
     // Send the user to the edit page when button is clicked
-    location.assign('/edit.html');
+    location.assign(`/edit.html#${id}`);
 });
 
 // Get input field value
