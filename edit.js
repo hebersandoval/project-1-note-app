@@ -1,3 +1,6 @@
+const titleElement = document.querySelector('#note-title');
+const contentElement = document.querySelector('#note-content');
+
 // Get the ID and remove the '#' symbol
 const noteID = location.hash.substring(1);
 
@@ -14,7 +17,18 @@ if (note === undefined) {
 }
 
 // Set the value of the title in the input field
-document.querySelector('#note-title').value = note.title;
+titleElement.value = note.title;
 
 // Set the value of the content in the textarea
-document.querySelector('#note-content').value = note.content;
+contentElement.value = note.content;
+
+// Update the title property with the value of the input field
+titleElement.addEventListener('input', function (event) {
+    note.title = event.target.value;
+    saveNotes(notes);
+});
+
+contentElement.addEventListener('input', function (event) {
+    note.content = event.target.value;
+    saveNotes(notes);
+});
