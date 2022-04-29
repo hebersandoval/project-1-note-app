@@ -23,7 +23,7 @@ const generateNoteDOM = function (note) {
     const noteElement = document.createElement('div');
     //Create a span element
     const textElement = document.createElement('span');
-    // Create a button element and append to right of div
+    // Create a button element and append to left of div
     const button = document.createElement('button');
     button.textContent = 'x';
     noteElement.append(button);
