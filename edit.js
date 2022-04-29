@@ -12,3 +12,9 @@ const note = notes.find(function (note) {
 if (note === undefined) {
     location.assign('/index.html');
 }
+
+// Set the value of the title in the input field
+document.querySelector('#note-title').value = note.title;
+
+// Set the value of the content in the textarea
+document.querySelector('#note-content').value = note.content;
