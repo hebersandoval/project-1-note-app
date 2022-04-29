@@ -1,5 +1,6 @@
 const titleElement = document.querySelector('#note-title');
 const contentElement = document.querySelector('#note-content');
+const removeElement = document.querySelector('#remove-note');
 
 // Get the ID and remove the '#' symbol
 const noteID = location.hash.substring(1);
@@ -31,4 +32,11 @@ titleElement.addEventListener('input', function (event) {
 contentElement.addEventListener('input', function (event) {
     note.content = event.target.value;
     saveNotes(notes);
+});
+
+removeElement.addEventListener('click', function (event) {
+    removeNote(note.id);
+    saveNotes(notes);
+
+    location.assign('/index.html');
 });
