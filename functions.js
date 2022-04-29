@@ -21,12 +21,17 @@ const saveNotes = function (notes) {
 const generateNoteDOM = function (note) {
     // Create a div element
     const noteElement = document.createElement('div');
+
     //Create a span element
     const textElement = document.createElement('span');
+
     // Create a button element and append to left of div
     const button = document.createElement('button');
     button.textContent = 'x';
     noteElement.append(button);
+    button.addEventListener('click', function () {
+        console.log(note);
+    });
 
     // Create if notes title is not empty
     if (note.title.length > 0) {
