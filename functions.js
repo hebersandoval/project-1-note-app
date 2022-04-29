@@ -19,16 +19,27 @@ const saveNotes = function (notes) {
 
 // Generate the DOM structure for the note
 const generateNoteDOM = function (note) {
-    // Create new element
-    const noteElement = document.createElement('p');
+    // Create a div element
+    const noteElement = document.createElement('div');
+    //Create a span element
+    const textElement = document.createElement('span');
+    // Create a button element and append to right of div
+    const button = document.createElement('button');
+    button.textContent = 'x';
+    noteElement.append(button);
+
     // Create if notes title is not empty
     if (note.title.length > 0) {
         // Update content
-        noteElement.textContent = note.title;
+        textElement.textContent = note.title;
     } else {
         // Not replacing the title property of 'notes' just filling in the element's text content.
-        noteElement.textContent = 'Untitled Note';
+        textElement.textContent = 'Untitled Note';
     }
+
+    // Append the span tag to the div tag
+    noteElement.appendChild(textElement);
+
     return noteElement;
 };
 
