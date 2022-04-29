@@ -1,6 +1,6 @@
 console.log('Hello from Notes App!');
 
-// Series of notes hard-coded
+// Get notes from localStorage
 const notes = getSavedNotes();
 
 // Filter data
@@ -14,6 +14,7 @@ renderNotes(notes, filters);
 // Create a note
 document.querySelector('#create-note').addEventListener('click', function (event) {
     notes.push({
+        id: uuidv4(),
         title: '',
         content: '',
     });
