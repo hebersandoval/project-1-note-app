@@ -34,8 +34,8 @@ const generateNoteDOM = function (note) {
     // Create a div element
     const noteElement = document.createElement('div');
 
-    //Create a span element
-    const textElement = document.createElement('span');
+    //Create an anchor element
+    const textElement = document.createElement('a');
 
     // Create a button element and append to left of div
     const button = document.createElement('button');
@@ -56,6 +56,9 @@ const generateNoteDOM = function (note) {
         // Not replacing the title property of 'notes' just filling in the element's text content.
         textElement.textContent = 'Untitled Note';
     }
+
+    // Set attribute for anchor tag
+    textElement.setAttribute('href', `/edit.html#${note.id}`);
 
     // Append the span tag to the div tag
     noteElement.appendChild(textElement);
