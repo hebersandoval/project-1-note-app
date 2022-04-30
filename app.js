@@ -1,7 +1,7 @@
 console.log('Hello from Notes App!');
 
 // Get notes from localStorage
-const notes = getSavedNotes();
+let notes = getSavedNotes();
 
 // Filter data
 const filters = {
@@ -37,4 +37,12 @@ document.querySelector('#search-text').addEventListener('input', function (event
 // Get data from dropdown
 document.querySelector('#filter-by').addEventListener('change', function (event) {
     console.log(event.target.value);
+});
+
+// Add an event on window to listen on localStorage
+window.addEventListener('storage', function (event) {
+    if (event.key === 'notes') {
+        notes = JSON.parse(event.newValue);
+        renderNotes(notes, filters);
+    }
 });
