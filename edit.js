@@ -42,6 +42,6 @@ removeElement.addEventListener('click', function (event) {
 });
 
 // Add and event to window
-window.addEventListener('click', function (event) {
-    console.log('Clicked, yes');
+window.addEventListener('storage', function (event) {
+    console.log('Some data change');
 });
