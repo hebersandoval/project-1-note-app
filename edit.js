@@ -5,10 +5,10 @@ const removeElement = document.querySelector('#remove-note');
 // Get the ID and remove the '#' symbol
 const noteID = location.hash.substring(1);
 
-const notes = getSavedNotes();
+let notes = getSavedNotes();
 
 // Find the note that matches the id of the hash
-const note = notes.find(function (note) {
+let note = notes.find(function (note) {
     return note.id === noteID;
 });
 
@@ -41,7 +41,23 @@ removeElement.addEventListener('click', function (event) {
     location.assign('/index.html');
 });
 
-// Add and event to window
+// Add an event on window to listen on localStorage
 window.addEventListener('storage', function (event) {
-    console.log('Some data change');
+    // Access latest data and render it to the screen
+    if (event.key == 'notes') {
+        notes = JSON.parse(event.newValue);
+
+        // Find the note that matches the id of the hash
+        note = notes.find(function (note) {
+            return note.id === noteID;
+        });
+        // Return to homepage if no ID matches
+        if (note === undefined) {
+            location.assign('/index.html');
+        }
+        // Set the value of the title in the input field
+        titleElement.value = note.title;
+        // Set the value of the content in the textarea
+        contentElement.value = note.content;
+    }
 });
