@@ -40,3 +40,8 @@ removeElement.addEventListener('click', function (event) {
 
     location.assign('/index.html');
 });
+
+// Add and event to window
+window.addEventListener('click', function (event) {
+    console.log('Clicked, yes');
+});
