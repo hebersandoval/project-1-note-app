@@ -9,7 +9,7 @@ const filters = {
     sortBy: 'byEdited',
 };
 
-// This gets called ones, just to have some notes to display
+// Display notes from localStorage if any
 renderNotes(notes, filters);
 
 // Create a note
