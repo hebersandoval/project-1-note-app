@@ -1,6 +1,7 @@
 const titleElement = document.querySelector('#note-title');
 const contentElement = document.querySelector('#note-content');
 const removeElement = document.querySelector('#remove-note');
+const dateElement = document.querySelector('#last-edited');
 
 // Get the ID and remove the '#' symbol
 const noteID = location.hash.substring(1);
@@ -22,6 +23,8 @@ titleElement.value = note.title;
 
 // Set the value of the content in the textarea
 contentElement.value = note.content;
+
+dateElement.textContent = `Last edited ${moment(note.updatedAt).fromNow()}`;
 
 // Update the title property with the value of the input field
 titleElement.addEventListener('input', function (event) {
