@@ -66,8 +66,48 @@ const generateNoteDOM = function (note) {
     return noteElement;
 };
 
+// Sort the notes by filters
+const sortNotes = function (notes, sortBy) {
+    if (sortBy === 'byEdited') {
+        return notes.sort(function (a, b) {
+            // Is a more recent -> values returned from .sort() -1 0 1
+            if (a.updatedAt > b.updatedAt) {
+                return -1;
+            } else if (a.updatedAt < b.updatedAt) {
+                return 1;
+            } else {
+                return 0; // both timestamp are equal
+            }
+        });
+    } else if (sortBy === 'byCreated') {
+        return notes.sort(function (a, b) {
+            if (a.createdAt > b.createdAt) {
+                return -1;
+            } else if (a.createdAt < b.createdAt) {
+                return 1;
+            } else {
+                return 0;
+            }
+        });
+    } else if (sortBy === 'alphabetical') {
+        return notes.sort(function (a, b) {
+            if (a.title.toLowerCase() < b.title.toLowerCase()) {
+                return -1;
+            } else if (a.title.toLowerCase() > b.title.toLowerCase()) {
+                return 1;
+            } else {
+                return 0;
+            }
+        });
+    } else {
+        return notes;
+    }
+};
+
 // Render application notes
 const renderNotes = function (notes, filters) {
+    notes = sortNotes(notes, filters.sortBy);
+
     // Limit notes that pass filters
     const filteredNotes = notes.filter(function (note) {
         // Contains searched text
@@ -82,4 +122,9 @@ const renderNotes = function (notes, filters) {
         // Append note to the DOM
         document.querySelector('#notes').appendChild(noteElement);
     });
+};
+
+// Generate the last edited message
+const generateLastEdited = function (timestamp) {
+    return `Last edited ${moment(timestamp).fromNow()}`;
 };
