@@ -15,10 +15,14 @@ renderNotes(notes, filters);
 document.querySelector('#create-note').addEventListener('click', function (event) {
     const id = uuidv4();
 
+    const timestamp = moment().valueOf();
+
     notes.push({
         id: id,
         title: '',
         content: '',
+        createdAt: timestamp,
+        updatedAt: timestamp,
     });
     // Save data to localStorage
     saveNotes(notes);

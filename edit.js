@@ -26,11 +26,13 @@ contentElement.value = note.content;
 // Update the title property with the value of the input field
 titleElement.addEventListener('input', function (event) {
     note.title = event.target.value;
+    note.updatedAt = moment().valueOf();
     saveNotes(notes);
 });
 
 contentElement.addEventListener('input', function (event) {
     note.content = event.target.value;
+    note.updatedAt = moment().valueOf();
     saveNotes(notes);
 });
 
