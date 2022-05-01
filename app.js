@@ -6,6 +6,7 @@ let notes = getSavedNotes();
 // Filter data
 const filters = {
     searchText: '',
+    sortBy: 'byEdited',
 };
 
 // This gets called ones, just to have some notes to display
@@ -40,7 +41,8 @@ document.querySelector('#search-text').addEventListener('input', function (event
 
 // Get data from dropdown
 document.querySelector('#filter-by').addEventListener('change', function (event) {
-    console.log(event.target.value);
+    filters.sortBy = event.target.value;
+    renderNotes(notes, filters);
 });
 
 // Add an event on window to listen on localStorage

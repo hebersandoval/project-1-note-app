@@ -66,8 +66,28 @@ const generateNoteDOM = function (note) {
     return noteElement;
 };
 
+// Sort the notes by filters
+const sortNotes = function (notes, sortBy) {
+    if (sortBy === 'byEdited') {
+        return notes.sort(function (a, b) {
+            // Is a more recent -> values returned from .sort() -1 0 1
+            if (a.updatedAt > b.updatedAt) {
+                return -1;
+            } else if (a.updatedAt < b.updatedAt) {
+                return 1;
+            } else {
+                return 0; // both timestamp are equal
+            }
+        });
+    } else {
+        return notes;
+    }
+};
+
 // Render application notes
 const renderNotes = function (notes, filters) {
+    notes = sortNotes(notes, filters.sortBy);
+
     // Limit notes that pass filters
     const filteredNotes = notes.filter(function (note) {
         // Contains searched text
