@@ -24,18 +24,20 @@ titleElement.value = note.title;
 // Set the value of the content in the textarea
 contentElement.value = note.content;
 
-dateElement.textContent = `Last edited ${moment(note.updatedAt).fromNow()}`;
+dateElement.textContent = generateLastEdited(note.updatedAt);
 
 // Update the title property with the value of the input field
 titleElement.addEventListener('input', function (event) {
     note.title = event.target.value;
     note.updatedAt = moment().valueOf();
+    dateElement.textContent = generateLastEdited(note.updatedAt);
     saveNotes(notes);
 });
 
 contentElement.addEventListener('input', function (event) {
     note.content = event.target.value;
     note.updatedAt = moment().valueOf();
+    dateElement.textContent = generateLastEdited(note.updatedAt);
     saveNotes(notes);
 });
 
@@ -64,5 +66,7 @@ window.addEventListener('storage', function (event) {
         titleElement.value = note.title;
         // Set the value of the content in the textarea
         contentElement.value = note.content;
+        // Update value on storage change
+        dateElement.textContent = generateLastEdited(note.updatedAt);
     }
 });
