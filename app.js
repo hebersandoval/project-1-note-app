@@ -34,7 +34,7 @@ const renderNotes = function (notes, filters) {
             noteElement.textContent = note.title;
         } else {
             // Not replacing the title property of 'notes' just filling in the element's text content.
-            noteElement.textContent = 'Untitled note';
+            noteElement.textContent = 'Untitled Note';
         }
         // Append note to the DOM
         document.querySelector('#notes').appendChild(noteElement);
@@ -46,24 +46,30 @@ renderNotes(notes, filters);
 
 // Create a note
 document.querySelector('#create-note').addEventListener('click', function (event) {
+
+    
+
     notes.push({
         title: '',
         content: '',
     });
+    console.log("This is created"); //NOTE TO SELF 
     // Save data to localStorage
     localStorage.setItem('notes', JSON.stringify(notes));
     // Render the notes
-    renderNotes(notes, filters);
+    renderNotes(notes, filters, event);
 });
 
 // Get input field value
 document.querySelector('#search-text').addEventListener('input', function (event) {
-    // console.log(event.target.value);
+    console.log(event.target.value);
     filters.searchText = event.target.value;
     renderNotes(notes, filters);
 });
 
 // Get data from dropdown
-document.querySelector('#filter-by').addEventListener('change', function (event) {
-    console.log(event.target.value);
-});
+document.querySelector('#filter-by').addEventListener().onClick; {
+    querySelector('Untitled Note').addEventListener().filteredNotes;
+    console.log(target.value.filteredNotes);
+};
+
