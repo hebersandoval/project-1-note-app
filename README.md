@@ -1,17 +1,20 @@
-## Note App
+# Note App
 
-### This is a summary of the build process of the Note App.
+## Follow the naming convention of the Note App
 
-#### The app will allow the user to create a new note with a title and associated content.
-#### If a changes is needed, the app will have an 'edit' button to change an exisiting note.
+- For Development checkout dev-Note.s
 
-### Description on main points of the app.
+## Description on main points of the app
 
-#### Keep your notes in one place so you can retrieve it later.
+- Keep your notes in one place so you can retrieve it later
+- Make your copy Notes as you would like to add feature notes.
 
-###### Testing naming convention for Jira tasks.
+## Testing naming convention for Jira tasks
 
-### Summary.
-#### Hope you enjoy this app and use it to keep your notes around.
+- dev-Notes
 
-#### Thanks for visiting.
+## Summary
+
+- Hope you enjoy this app and use it to keep your notes stacking
+
+- Thanks for visiting.
