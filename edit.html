@@ -37,10 +37,6 @@
                             <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
                         </li>
                     </ul>
-                    <!-- <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form> -->
                 </div>
             </div>
         </nav>
@@ -50,15 +46,15 @@
                 <h1>Note App</h1>
                 <p class="lead">Create a new note or edit an existing one.</p>
 
-                <input id="note-title" placeholder="Enter new note title" />
+                <input id="note-title" class="form-control me-2" placeholder="Enter new note title" />
                 <span id="last-edited"></span>
                 <br />
                 <br />
-                <textarea id="note-content" placeholder="Enter new note text"></textarea>
+                <textarea id="note-content" class="form-control" rows="8" placeholder="Enter new note text"></textarea>
                 <br />
                 <br />
 
-                <button id="remove-note">Remove Note</button>
+                <button id="remove-note" class="btn btn-outline-danger">Remove Note</button>
             </div>
         </main>
 

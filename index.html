@@ -46,17 +46,25 @@
                 <h1>Note App</h1>
                 <p class="lead">Take notes and never forget unless you forgot where you saved this note.</p>
 
-                <input type="text" id="search-text" placeholder="Search for filtered notes..." />
+                <form class="d-flex">
+                    <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+                    <input
+                        type="text"
+                        id="search-text"
+                        class="form-control me-2"
+                        placeholder="Search for filtered notes..."
+                    />
 
-                <select id="filter-by">
-                    <option value="byEdited">Sort by last edited</option>
-                    <option value="byCreated">Sort by recently created</option>
-                    <option value="alphabetical">Sort alphabetically</option>
-                </select>
-                <br />
+                    <select id="filter-by" class="form-select">
+                        <option value="byEdited">Sort by last edited</option>
+                        <option value="byCreated">Sort by recently created</option>
+                        <option value="alphabetical">Sort alphabetically</option>
+                    </select>
+                </form>
+
                 <br />
 
-                <button id="create-note">Create Note</button>
+                <button id="create-note" class="btn btn-success">Create Note</button>
                 <br />
                 <br />
 
