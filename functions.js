@@ -40,6 +40,8 @@ const generateNoteDOM = function (note) {
     // Create a button element and append to left of div
     const button = document.createElement('button');
     button.textContent = 'x';
+    // button.classList.add('btn btn-danger')
+    // button.style.cssText += 'color:red;background-color:yellow';
     noteElement.append(button);
     button.addEventListener('click', function () {
         // Remove note using its id property
