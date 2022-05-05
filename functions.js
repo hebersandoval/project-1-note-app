@@ -33,25 +33,10 @@ const saveNotes = function (notes) {
 const generateNoteDOM = function (note) {
     // Create a div element
     const noteElement = document.createElement('div');
+    noteElement.classList.add('h4');
 
     //Create an anchor element
     const textElement = document.createElement('a');
-
-    // Create a button element and append to left of div
-    const button = document.createElement('button');
-    button.textContent = 'x';
-    // button.className += 'btn btn-danger';
-    button.classList.add('btn btn-danger');
-    // button.style.cssText += 'color:red;background-color:yellow';
-    noteElement.append(button);
-
-    // TO DO: Take this functionality off as it doesn't make sense in here
-    button.addEventListener('click', function () {
-        // Remove note using its id property
-        removeNote(note.id);
-        saveNotes(notes);
-        renderNotes(notes, filters);
-    });
 
     // Create if notes title is not empty
     if (note.title.length > 0) {
