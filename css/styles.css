@@ -2,6 +2,7 @@
 body {
     min-height: 75rem;
     padding-top: 4.5rem;
+    
 }
 
 .bd-placeholder-img {
@@ -10,6 +11,9 @@ body {
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
+}
+.container {
+    background-color: linear-gradient(to right, rgb(17, 100, 17), rgb(62, 104, 229));
 }
 
 @media (min-width: 768px) {
